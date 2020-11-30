@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import Grid from "@material-ui/core/Grid";
 import AppBar from "@material-ui/core/AppBar";
@@ -7,11 +7,16 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import InputBase from "@material-ui/core/InputBase";
-import SearchIcon from "@material-ui/icons/Search";
+import AccountCircle from "@material-ui/icons/AccountCircle";
 import { Link } from "react-router-dom";
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import Tooltip from '@material-ui/core/Tooltip';
+
+
 // import from other files
 import Color from "../utils/Color";
+import SearchPlants from "./SearchPlants";
+import { UserContext } from "./UserContext";
 
 //styled
 const Logo = styled.p`
@@ -35,52 +40,99 @@ const StyledLinks = styled(Link)`
   color: ${Color.Green};
 `;
 
-const SearchContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  position: relative;
-  border-radius: 25px;
-  height: 80%;
-  background-color: ${Color.DarkGrey};
-  margin-right: 1em;
-  @media (max-width: 450px) {
-    display: none;
-  }
-`;
-const Search = styled.div`
-  position: abosulte;
-  margin-left: 1em;
-  margin-right: 0.5em;
-`;
+const UserDiv = styled.div`
+color:${Color.Green};
+display:flex;
+flex-direction: row;
+align-items: center;
+margin-right:12px
 
+`;
 function Header() {
+  const userInfo = useContext(UserContext)
+  const {user, cartItems, setUser, setCartItems} = userInfo
   const [anchorEl, setAnchorEl] = useState(null);
+  const [logoutAnchorEL, SetLogoutAnchorEL] = useState(null);
+
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
   const handleClose = () => {
     setAnchorEl(null);
   };
+  function handleLogoutClick(event) {
+    SetLogoutAnchorEL(event.currentTarget)
+  };
+  function handleLogoutClose() {
+    SetLogoutAnchorEL(null)
+  };
+  function handleLogout() {
+    SetLogoutAnchorEL(null)
+    setUser(null)
+    setCartItems([])
+  }
+
+
   return (
     <AppBar position="fixed" style={{ background: `${Color.White}` }}>
       <Toolbar>
-        <Logo>Calathea</Logo>
-        <Grid container justify="flex-end" xs alignItems="center">
-          <SearchContainer>
-            <Search>
-              <SearchIcon
-                style={{ color: `${Color.Green}`, marginTop: "0.2em" }}
-              />
-            </Search>
-            <InputBase
-              placeholder="Search…"
-              style={{ color: `${Color.Green}` }}
-              inputProps={{ "aria-label": "search" }}
+        <Link
+          to="/"
+          style={{ textDecoration: "none", color: `${Color.Green}` }}
+        >
+          <Logo>Calathea</Logo>
+        </Link>
+        <Grid container justify="flex-end" xs item={true} alignItems="center">
+          <SearchPlants />
+          {user ? (
+            <UserDiv>
+            <img
+              style={{
+                width: "25px",
+                height:"25px",
+                marginRight: "8px",
+                borderRadius: "50px",
+              }}
+              src={user.image}
+              alt="user photo"
+              onClick={handleLogoutClick}
             />
-          </SearchContainer>
+            <Menu
+            id="simple-menu"
+            anchorEl={logoutAnchorEL}
+            keepMounted
+            open={Boolean(logoutAnchorEL)}
+            onClose={handleLogoutClose}
+            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+            transformOrigin={{ vertical: "top", horizontal: "center" }}
+            getContentAnchorEl={null}
+            >
+              
+              <MenuItem onClick={handleLogout} style={{color: `${Color.Green}`}}>
+              <Link to="/" style={{ textDecoration: "none", color: `${Color.Green}` }} >
+                Log out
+                </Link>
+                </MenuItem>
+            
+            </Menu>
+            <Link to="/basket" style={{ textDecoration: "none", color: `${Color.Green}` }}>
+            <Tooltip title={cartItems.length + " items"} >
+            <ShoppingBasketIcon  />
+            </Tooltip>             
+            </Link>
+            </UserDiv>
+          ) : (
+            <Link to="/login">
+              <AccountCircle
+                style={{
+                  color: `${Color.Green}`,
+                  marginRight: "12px",
+                  marginTop: "3px",
+                }}
+              />
+            </Link>
+          )}
 
           <IconButton
             edge="start"
@@ -105,7 +157,7 @@ function Header() {
               </StyledLinks>
             </MenuItem>
             <MenuItem>
-              <StyledLinks to="/plant" onClick={handleClose}>
+              <StyledLinks to="/plants" onClick={handleClose}>
                 Plants
               </StyledLinks>
             </MenuItem>

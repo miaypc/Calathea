@@ -1,11 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "../components/Header";
+import PopularPlantSection from "../components/PopularPlantsSection";
+
+const PlantSectionContainer = styled.div`
+  padding-top: 5em;
+`;
+
 function PlantPage() {
   return (
     <div>
-      <Header />
-      <p></p>
+      <PlantSectionContainer>
+        <PopularPlantSection />
+      </PlantSectionContainer>
     </div>
   );
 }

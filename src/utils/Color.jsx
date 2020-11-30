@@ -5,5 +5,6 @@ const Color = {
   LightGrey: "#f0f3f3",
   GreyText: "#939493",
   DarkGreyText: "#6a6b6a",
+  Cream: "#e7e7e2",
 };
 export default Color;
