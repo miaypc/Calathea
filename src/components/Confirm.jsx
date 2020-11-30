@@ -16,7 +16,7 @@ function Confirm() {
   return (
       <ConfirmContainer>
         <ConfirmTitle>Confirmation </ConfirmTitle>
-        <ConfirmText>Your Booking has been confirmation, and you will receive information about the booking details soon!</ConfirmText>
+        <ConfirmText>Your booking has been confirmed, and you will receive information about the details soon!</ConfirmText>
       </ConfirmContainer>
   );
 }

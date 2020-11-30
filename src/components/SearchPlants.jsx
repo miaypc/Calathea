@@ -23,7 +23,7 @@ const SearchContainer = styled.div`
   border-radius: 25px;
   height: 80%;
   background-color: ${Color.DarkGrey};
-  @media (max-width: 450px) {
+  @media (max-width: 500px) {
     width: 50%;
   }
 `;
@@ -51,7 +51,7 @@ function SearchPlants() {
     if (filteredPlants.length !== 0) {
       filteredPlants.map((e) => (window.location = `/plants/${e.id}`));
     } else {
-      window.location = `/no`;
+      window.location = `/error`;
     }
   };
 

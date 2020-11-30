@@ -44,9 +44,9 @@ function Login() {
     <LoginContainer>
       <SignInImage  />
       {user ? (
-        <div >
+        <div>
         <H2>Welcome: {user.name} </H2>
-        <img src={user.image} alt="a photo of user"/>
+        {/* <img src={user.image} alt="a photo of user"/> */}
         </div>
       ) : (
         <div>

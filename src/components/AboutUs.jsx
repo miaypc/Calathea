@@ -93,8 +93,8 @@ function AboutUs() {
         </AboutText>
         <AboutText>
           There are about 320,000 species of plants, of which the great
-          majority, some 260–290 thousand, produce seeds.[5] Green plants
-          provide a substantial proportion of the world's molecular oxygen,[6]
+          majority, some 260–290 thousand, produce seeds. Green plants
+          provide a substantial proportion of the world's molecular oxygen,
           and are the basis of most of Earth's ecosystems. Plants that produce
           grain, fruit and vegetables also form basic human foods and have been
           domesticated for millennia. Plants have many cultural and other uses,

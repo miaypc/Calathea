@@ -2,8 +2,8 @@ import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import Grid from "@material-ui/core/Grid";
 import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
+import _Toolbar from "@material-ui/core/Toolbar";
+import _IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -19,6 +19,20 @@ import SearchPlants from "./SearchPlants";
 import { UserContext } from "./UserContext";
 
 //styled
+
+const Toolbar = styled(_Toolbar)`
+@media (max-width: 450px) {
+  padding-left:3px;
+  padding-right:3px;
+}
+`;
+const IconButton = styled(_IconButton)`
+@media (max-width: 450px) {
+  padding-left:3px;
+  padding-right:7px;
+}
+`;
+
 const Logo = styled.p`
   color: ${Color.Green};
   font-size: 50px;
@@ -48,6 +62,12 @@ align-items: center;
 margin-right:12px
 
 `;
+
+
+
+
+
+
 function Header() {
   const userInfo = useContext(UserContext)
   const {user, cartItems, setUser, setCartItems} = userInfo

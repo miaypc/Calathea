@@ -173,7 +173,7 @@ function Basket (){
                 <DialogTitle id="alert-dialog-title" style={{color:`${Color.DarkGreyText}`}}>{"Book the plants"}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description" style={{color:`${Color.LightGreyText}`}}>
-                        Book the plants now ~~~~~
+                        If you would like to confirm your booking, please click the confirm button. 
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions style={{marginRight:"25px"}}>

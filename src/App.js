@@ -7,7 +7,7 @@ import AboutPage from "./pages/AboutPage";
 import DetailPage from "./pages/DetailPage";
 import Detail from "./components/Detail";
 import ScrollToTop from "./components/ScrollToTop";
-import Wrong from "./components/Wrong";
+import NoPlantFoundPage from "./pages/NoPlantFoundPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
@@ -27,7 +27,7 @@ function App() {
           <Route exact path="/about" component={AboutPage} />
           <Route exact path="/detail" component={DetailPage} />
           <Route exact path="/plants/:id" component={Detail} />
-          <Route exact path="/no" component={Wrong} />
+          <Route exact path="/error" component={NoPlantFoundPage} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/basket" component={Basket} />
           <Route exact path="/confirm" component={Confirm} />
