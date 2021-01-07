@@ -115,7 +115,7 @@ function Header() {
                 borderRadius: "50px",
               }}
               src={user.image}
-              alt="user photo"
+              alt="user"
               onClick={handleLogoutClick}
             />
             <Menu

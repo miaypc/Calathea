@@ -128,7 +128,7 @@ function Detail({ match }) {
   // }
   useEffect(() => {
     setId(match.params.id - 1);
-  }, []);
+  }, [match.params.id]);
 
   function handleAddButton() {
     setAddButtonText("In the cart");

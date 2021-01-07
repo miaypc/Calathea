@@ -7,7 +7,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { Link, useHistory} from "react-router-dom";
+import { Link} from "react-router-dom";
 import AddIcon from '@material-ui/icons/Add';
 import MinimizeIcon from '@material-ui/icons/Minimize';
 
@@ -104,7 +104,7 @@ function Basket (){
     const {cartItems, setCartItems} = userInfo
     const [bookModalOpen, setBookModalOpen] = useState(false)
 
-    const history = useHistory();
+    //const history = useHistory();
     
     function handleBookButton() {
         setBookModalOpen(true)

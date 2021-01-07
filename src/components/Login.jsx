@@ -37,6 +37,7 @@ function Login() {
       name: response.profileObj.givenName,
       image: response.profileObj.imageUrl,
     });
+    // console.log(response.profileObj)
     setIsLogged(true)
   };
 

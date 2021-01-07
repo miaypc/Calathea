@@ -80,6 +80,7 @@ function SearchPlants() {
             }}
           >
             <InputBase
+            className={classes.color}
               onSelect={() => (search ? handleClick() : "")}
               placeholder="Search…"
               style={{
