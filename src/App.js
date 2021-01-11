@@ -5,6 +5,8 @@ import HomePage from "./pages/HomePage";
 import PlantPage from "./pages/PlantPage";
 import AboutPage from "./pages/AboutPage";
 import DetailPage from "./pages/DetailPage";
+import NotAvailablePage from "./pages/NotAvailablePage";
+
 import Detail from "./components/Detail";
 import ScrollToTop from "./components/ScrollToTop";
 import NoPlantFoundPage from "./pages/NoPlantFoundPage";
@@ -31,6 +33,7 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/basket" component={Basket} />
           <Route exact path="/confirm" component={Confirm} />
+          <Route  path="*" component={NotAvailablePage}/>
         </Switch>
         <Footer />
       </UserProvider>
