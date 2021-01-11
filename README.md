@@ -1,5 +1,5 @@
 # Calathea
-This project is a React App.
+This project is a React App. Please see : https://calathea.netlify.app
 ![homepage](src/image/Readme.png)
 
 ## Setup
